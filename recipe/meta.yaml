@@ -11,16 +11,17 @@ source:
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  # FIXME: https://github.com/iris-hep/func_adl/blob/b67b122de5000e6b3a2541d3ae9770faa7cb6086/setup.py#L55
+  script: func_adl_version="{{ version }}" {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
 
 requirements:
   host:
-    - python >=3.7
+    - python >=3.7,<3.13
     - pip
     - setuptools
   run:
-    - python >=3.7
+    - python >=3.7,<3.13
     - make-it-sync
 
 test:
@@ -28,6 +29,7 @@ test:
     - func_adl
   commands:
     - pip check
+    - pip list
   requires:
     - pip
 
