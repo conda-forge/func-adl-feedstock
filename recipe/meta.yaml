@@ -22,7 +22,7 @@ requirements:
     - pip
     - hatchling
   run:
-    - python >={{ python_min }},<3.13
+    - python >={{ python_min }}
     - make-it-sync
 
 test:
