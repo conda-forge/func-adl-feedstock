@@ -2,8 +2,8 @@ schema_version: 1
 
 context:
   name: func-adl
-  version: 3.4.0
-  python_min: 3.9
+  version: "3.4.1"
+  python_min: '3.9'
 
 package:
   name: ${{ name|lower }}
@@ -11,11 +11,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/func_adl-${{ version }}.tar.gz
-  sha256: b0d0b11f70037ef11188d533b6d58d681970532556af12b76cee8090de567ebb
+  sha256: 03957f588235f99c63a765f758fa768a6c5cfc52b988e98cec697ea804fa6644
 
 build:
   # FIXME: https://github.com/iris-hep/func_adl/blob/b67b122de5000e6b3a2541d3ae9770faa7cb6086/setup.py#L55
-  number: 1
+  number: 0
   noarch: python
   script: func_adl_version="${{ version }}" ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
